@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "syncState",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Stream Gold Bridge/contracts/L2_polygon/FxRoot.sol": "IStateSender"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Stream Gold Bridge/contracts/L2_polygon/FxRoot.sol": {
+			"keccak256": "0xd86f4fcf2fa64e29b377eb9475afdfcbf6863345fba2e7cc732409806948972d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6beed95c88dd007f6ff0c0dacb08f820b32e26248ea6f6ef2c57c41b7f653a1",
+				"dweb:/ipfs/QmbBtW6yq4To2rbmYPBuD1exrNwCwYxFuFe3DUS3AWV8MB"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,387 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_message",
+						"type": "bytes32"
+					}
+				],
+				"name": "numMessagesSigned",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_hash",
+						"type": "bytes32"
+					},
+					{
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "signature",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "requiredMessageLength",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_hash",
+						"type": "bytes32"
+					}
+				],
+				"name": "message",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "signature",
+						"type": "bytes"
+					},
+					{
+						"name": "message",
+						"type": "bytes"
+					}
+				],
+				"name": "submitSignature",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_withdrawal",
+						"type": "bytes32"
+					}
+				],
+				"name": "numAffirmationsSigned",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_withdrawal",
+						"type": "bytes32"
+					}
+				],
+				"name": "affirmationsSigned",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "requiredSignatures",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_message",
+						"type": "bytes32"
+					}
+				],
+				"name": "messagesSigned",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "validatorContract",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"name": "transactionHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "executeAffirmation",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_number",
+						"type": "uint256"
+					}
+				],
+				"name": "isAlreadyProcessed",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "UserRequestForSignature",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "transactionHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "AffirmationCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "messageHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "SignedForUserRequest",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "transactionHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "SignedForAffirmation",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "authorityResponsibleForRelay",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "messageHash",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"name": "NumberOfCollectedSignatures",
+						"type": "uint256"
+					}
+				],
+				"name": "CollectedSignatures",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Sentinel Bridge/contracts/upgradeable_contracts/BasicHomeBridge.sol": "BasicHomeBridge"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Sentinel Bridge/contracts/IBridgeValidators.sol": {
+			"keccak256": "0x0108a06f90ae7492d643d3760a98c69b28aa088abce61f0d0c17af3a8e6b1466",
+			"urls": [
+				"bzzr://6f0bb59cfa7b7de0e014ae6e291c781de9e1a7b58187cdb642b31e8f9e30a931"
+			]
+		},
+		"Sentinel Bridge/contracts/libraries/Message.sol": {
+			"keccak256": "0x969f993871d36ea1af8a3dac84642ec5d8f6fd90ef95206319fdd0ec7d250710",
+			"urls": [
+				"bzzr://7f51f637b306d740835bad5145d607c5ab63f829bfd6b214b3b9a66c0823be0f"
+			]
+		},
+		"Sentinel Bridge/contracts/libraries/SafeMath.sol": {
+			"keccak256": "0x1da6defc8347d6520a08d09f38e6c78865b8b8a9611f8081903d16aeecbeec60",
+			"urls": [
+				"bzzr://8d42f39a025e7e5e624e02cc1f00cde69e93004675bb8860170830318ba54a35"
+			]
+		},
+		"Sentinel Bridge/contracts/upgradeability/EternalStorage.sol": {
+			"keccak256": "0x20d82231b6d6530069f22085a39d480f9cb38b0ca30d055af515a36de41b23ae",
+			"urls": [
+				"bzzr://4867c977c55fe83389927f87409abe30779e26c0748c4dbf55ac58ae4dc36d13"
+			]
+		},
+		"Sentinel Bridge/contracts/upgradeable_contracts/BasicHomeBridge.sol": {
+			"keccak256": "0xb7c44ef7d75fe9f2c5f7e79f92d744bf3cd62ba40f7a3a93576e485e464c1e3d",
+			"urls": [
+				"bzzr://d759d1d774d6755c9191bf87acaa9b3f5a77e0b2236bddf2622ed94d032a3216"
+			]
+		},
+		"Sentinel Bridge/contracts/upgradeable_contracts/Validatable.sol": {
+			"keccak256": "0x49900620538ca2e819d946d96c662c7f1ebb1a52094781d0bcc20b8541fc321b",
+			"urls": [
+				"bzzr://da1ee3dd2333799c3e71b31b65e28ba5418dd428cf13a0300253e93e98a614e5"
+			]
+		},
+		"openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol": {
+			"keccak256": "0x516a17244073b518096ced7c8c94924cb29746ef0a4b6cc6cde125ac0406a419",
+			"urls": [
+				"bzzr://7addb1b5cad767651b9bcd688ba5b08769c1f3b70a470e34752a7717756d090d"
+			]
+		}
+	},
+	"version": 1
+}

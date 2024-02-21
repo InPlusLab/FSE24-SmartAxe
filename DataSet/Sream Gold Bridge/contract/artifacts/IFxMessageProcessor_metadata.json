@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "stateId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "rootMessageSender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "processMessageFromRoot",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Stream Gold Bridge/contracts/L2_polygon/FxBridge.sol": "IFxMessageProcessor"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Stream Gold Bridge/contracts/L2_polygon/FxBridge.sol": {
+			"keccak256": "0xa06331d7a6f2ab9d0304c2eccd37f927df50a8e1460e6870bfce3ea43b42cf37",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cfc1431c8b64c8871cdc84bb5e6493df05ac6362e1fc2bf1e183bad565fabd8a",
+				"dweb:/ipfs/QmUt62EFGip3mhPFAbjKGuiVMTiFUB7A852igFneDHXPge"
+			]
+		}
+	},
+	"version": 1
+}

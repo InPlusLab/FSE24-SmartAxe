@@ -1,0 +1,609 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_gac",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "CALLER_NOT_OWNER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "DUPLICATE_SENDER_ADAPTER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_PRIVILEGED_CALLER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_TARGET",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NO_SENDER_ADAPTER_FOUND",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_ADDRESS_INPUT",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_CHAIN_ID",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_RECEIVER_ADAPTER",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "senderAdapter",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "srcChainId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dstChainId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nativeValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expiration",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct MessageLibrary.Message",
+						"name": "message",
+						"type": "tuple"
+					}
+				],
+				"name": "ErrorSendMessage",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "msgId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "dstChainId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "callData",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nativeValue",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expiration",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "senderAdapters",
+						"type": "address[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool[]",
+						"name": "adapterSuccess",
+						"type": "bool[]"
+					}
+				],
+				"name": "MultiMessageMsgSent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "senderAdapter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "add",
+						"type": "bool"
+					}
+				],
+				"name": "SenderAdapterUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "MAXIMUM_EXPIRATION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINIMUM_EXPIRATION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_senderAdapters",
+						"type": "address[]"
+					}
+				],
+				"name": "addSenderAdapters",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_dstChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_multiMessageReceiver",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_target",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_callData",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nativeValue",
+						"type": "uint256"
+					}
+				],
+				"name": "estimateTotalMessageFee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalFee",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "gac",
+				"outputs": [
+					{
+						"internalType": "contract IGAC",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nonce",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_dstChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_target",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_callData",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nativeValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_expiration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_excludedAdapters",
+						"type": "address[]"
+					}
+				],
+				"name": "remoteCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_dstChainId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_target",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_callData",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_nativeValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_expiration",
+						"type": "uint256"
+					}
+				],
+				"name": "remoteCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_senderAdapters",
+						"type": "address[]"
+					}
+				],
+				"name": "removeSenderAdapters",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "senderAdapters",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "handles the routing of message from external sender to bridge adapters",
+			"errors": {
+				"CALLER_NOT_OWNER()": [
+					{
+						"details": "is thrown if caller is not the global owner"
+					}
+				],
+				"DUPLICATE_SENDER_ADAPTER()": [
+					{
+						"details": "is thrown if sender adapter array has duplicates"
+					}
+				],
+				"INVALID_PRIVILEGED_CALLER()": [
+					{
+						"details": "is thrown if caller is not owner of the contract"
+					}
+				],
+				"INVALID_TARGET()": [
+					{
+						"details": "is thrown if the target is invalid in remote call"
+					}
+				],
+				"NO_SENDER_ADAPTER_FOUND()": [
+					{
+						"details": "is thrown if no sender adapter is found on MMA Sender"
+					}
+				],
+				"ZERO_ADDRESS_INPUT()": [
+					{
+						"details": "is thrown when input is zero address"
+					}
+				],
+				"ZERO_CHAIN_ID()": [
+					{
+						"details": "is thrown if chain id is zero"
+					}
+				],
+				"ZERO_RECEIVER_ADAPTER()": [
+					{
+						"details": "is thrown if receiver adapter is zero address"
+					}
+				]
+			},
+			"events": {
+				"ErrorSendMessage(address,(uint256,uint256,address,uint256,bytes,uint256,uint256))": {
+					"details": "is emitted if cross-chain message fails"
+				},
+				"MultiMessageMsgSent(bytes32,uint256,uint256,address,bytes,uint256,uint256,address[],bool[])": {
+					"details": "is emitted when a cross-chain message is sent"
+				},
+				"SenderAdapterUpdated(address,bool)": {
+					"details": "is emitted when owner updates the sender adapter"
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"addSenderAdapters(address[])": {
+					"params": {
+						"_senderAdapters": "is the adapter address to add"
+					}
+				},
+				"constructor": {
+					"params": {
+						"_gac": "is the controller/registry of uniswap mma"
+					}
+				},
+				"remoteCall(uint256,address,bytes,uint256,uint256)": {
+					"params": {
+						"_callData": "is the data to be sent to _target by low-level call(eg. address(_target).call(_callData))",
+						"_dstChainId": "is the destination chainId",
+						"_expiration": "refers to the number of days that a message remains valid before it is considered stale and can no longer be executed.",
+						"_nativeValue": "is the value to be sent to _target by low-level call (eg. address(_target).call{value: _nativeValue}(_callData))",
+						"_target": "is the target execution point on dst chain"
+					}
+				},
+				"remoteCall(uint256,address,bytes,uint256,uint256,address[])": {
+					"params": {
+						"_callData": "is the data to be sent to _target by low-level call(eg. address(_target).call(_callData))",
+						"_dstChainId": "is the destination chainId",
+						"_excludedAdapters": "are the sender adapters to be excluded from relaying the message",
+						"_expiration": "refers to the number of days that a message remains valid before it is considered stale and can no longer be executed.",
+						"_nativeValue": "is the value to be sent to _target by low-level call (eg. address(_target).call{value: _nativeValue}(_callData))",
+						"_target": "is the target execution point on dst chain"
+					}
+				},
+				"removeSenderAdapters(address[])": {
+					"params": {
+						"_senderAdapters": "is the adapter address to remove"
+					}
+				}
+			},
+			"stateVariables": {
+				"nonce": {
+					"details": "nonce for msgId uniqueness"
+				},
+				"senderAdapters": {
+					"details": "bridge sender adapters available"
+				}
+			},
+			"title": "MultiMessageSender",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"SenderAdapterUpdated(address,bool)": {
+					"notice": "add being false indicates removal of the adapter"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"addSenderAdapters(address[])": {
+					"notice": "Add bridge sender adapters"
+				},
+				"estimateTotalMessageFee(uint256,address,address,bytes,uint256)": {
+					"notice": "A helper function for estimating total required message fee by all available message bridges."
+				},
+				"removeSenderAdapters(address[])": {
+					"notice": "Remove bridge sender adapters"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MultiBridge/src/MultiMessageSender.sol": "MultiMessageSender"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"MultiBridge/src/MultiMessageSender.sol": {
+			"keccak256": "0x83eab4420713e3679a8e8d93550aa171335cd3228a6dbb5eb8de69f5b10f9e0f",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://e9a9e247e9bd2d9b60052c61648e0b7952d7ff7763bfe3ced12ace74b4ef5b90",
+				"dweb:/ipfs/QmNdpdcsvpBPLy6cSXwCBqp7PRw2t4jFEykuCg5EYykCS9"
+			]
+		},
+		"MultiBridge/src/interfaces/EIP5164/MessageDispatcher.sol": {
+			"keccak256": "0x2c3af3ab279ed11a558c5cb979af6445afb03270f9639f7af9defe02c60f8e25",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://64448a7c9a04a3e19c562e5138774a95ec1cbfa08059afc31adec29595369071",
+				"dweb:/ipfs/QmVeosB9HqPbref4z9PHQwo3vAuDsJd6xjvziLZefvmfqN"
+			]
+		},
+		"MultiBridge/src/interfaces/EIP5164/SingleMessageDispatcher.sol": {
+			"keccak256": "0xacae15783447ba4577af8ba3a0a8efde7288b943741159b8da917bb53bd3d914",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://a7f97104ba324542136c0c72ca833c62ea4f88f206b934353bd4ab85ccad1adc",
+				"dweb:/ipfs/QmYEpkLrPJkR7erY3iZ28hxoAo24wmdLtbjW4t7t5Th38m"
+			]
+		},
+		"MultiBridge/src/interfaces/IBridgeSenderAdapter.sol": {
+			"keccak256": "0xbc2f803131791d27083c2b43c97f7110b1255663c17992461d7a3fef095e7eb3",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://d766b91266c22d633c5f166ddf5f97c4299bd52832c43e86dc945908b5f1723d",
+				"dweb:/ipfs/QmSV7BwCudFqDyhYzPSAStDLfjgYTfaa2ZTwma7QAhYHYi"
+			]
+		},
+		"MultiBridge/src/interfaces/IGAC.sol": {
+			"keccak256": "0xf07e6a768ac796c997b0b03f3ab62591811d074dd5caa61789f5d1c63f235018",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://ff425cb35d51106cd1bcbeac13593fc117e18c8700a65c51c4e7a8bf11c4be1c",
+				"dweb:/ipfs/Qmez37gmWVwbEZT3r1MqekGCBxAFqReZVTpYJKfWL2njTp"
+			]
+		},
+		"MultiBridge/src/interfaces/IMultiMessageReceiver.sol": {
+			"keccak256": "0x4c98a50d5eacd1a138d97eb0713a91d6673404c2afaf413b2ed03e44bd4dcaad",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://49bb8c7689e888587258a09701f6d988fcd005ed94a862e540ada370e940fe1f",
+				"dweb:/ipfs/QmezhKUWvJ1MeYTZoRiayZCWaVPJptKWuVPfKhdxgbvSbD"
+			]
+		},
+		"MultiBridge/src/libraries/Error.sol": {
+			"keccak256": "0x7cf8063b758942c8ce20c232d0ace4cc2da248c09853458532ab1ec871ade656",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://dae7d07d1820c554a52292e368f07baea1843a89e3218e44c5bebb1bf8f63cfa",
+				"dweb:/ipfs/QmbS1EuMWRfoWnMoEC4EtjfHGbBYxBUazk6T8fNKhS1jSt"
+			]
+		},
+		"MultiBridge/src/libraries/Message.sol": {
+			"keccak256": "0xfe76282bbb8810ff131629e008a7d8cfa1b87105db7327fb7439985e49812d62",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://d80934a40b4042690ba682909cbce65acd81954b80c5125a840be9a6d8c25227",
+				"dweb:/ipfs/QmVp3EUwTgx9dW5pPyR4k6sCCVBVPj6BeTybGgX1hm4QEh"
+			]
+		}
+	},
+	"version": 1
+}

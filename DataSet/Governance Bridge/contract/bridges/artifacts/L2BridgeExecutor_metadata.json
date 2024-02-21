@@ -1,0 +1,920 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "DelayLongerThanMax",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "DelayShorterThanMin",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "DuplicateAction",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "EmptyTargets",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedActionExecution",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "GracePeriodTooShort",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InconsistentParamsLength",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidActionsSetId",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitParams",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MaximumDelayTooShort",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MinimumDelayTooLong",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotGuardian",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyCallableByThis",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OnlyQueuedActions",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TimelockNotFinished",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UnauthorizedEthereumExecutor",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "ActionsSetCanceled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "initiatorExecution",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes[]",
+						"name": "returnedData",
+						"type": "bytes[]"
+					}
+				],
+				"name": "ActionsSetExecuted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "targets",
+						"type": "address[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "values",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "string[]",
+						"name": "signatures",
+						"type": "string[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes[]",
+						"name": "calldatas",
+						"type": "bytes[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool[]",
+						"name": "withDelegatecalls",
+						"type": "bool[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "executionTime",
+						"type": "uint256"
+					}
+				],
+				"name": "ActionsSetQueued",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldDelay",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "DelayUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldEthereumGovernanceExecutor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newEthereumGovernanceExecutor",
+						"type": "address"
+					}
+				],
+				"name": "EthereumGovernanceExecutorUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldGracePeriod",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newGracePeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "GracePeriodUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "oldGuardian",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newGuardian",
+						"type": "address"
+					}
+				],
+				"name": "GuardianUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldMaximumDelay",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newMaximumDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "MaximumDelayUpdate",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "oldMinimumDelay",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newMinimumDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "MinimumDelayUpdate",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actionsSetId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actionsSetId",
+						"type": "uint256"
+					}
+				],
+				"name": "execute",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "executeDelegateCall",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actionsSetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getActionsSetById",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "targets",
+								"type": "address[]"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "values",
+								"type": "uint256[]"
+							},
+							{
+								"internalType": "string[]",
+								"name": "signatures",
+								"type": "string[]"
+							},
+							{
+								"internalType": "bytes[]",
+								"name": "calldatas",
+								"type": "bytes[]"
+							},
+							{
+								"internalType": "bool[]",
+								"name": "withDelegatecalls",
+								"type": "bool[]"
+							},
+							{
+								"internalType": "uint256",
+								"name": "executionTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "executed",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "canceled",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct IExecutorBase.ActionsSet",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getActionsSetCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "actionsSetId",
+						"type": "uint256"
+					}
+				],
+				"name": "getCurrentState",
+				"outputs": [
+					{
+						"internalType": "enum IExecutorBase.ActionsSetState",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDelay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getEthereumGovernanceExecutor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGracePeriod",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGuardian",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMaximumDelay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMinimumDelay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "actionHash",
+						"type": "bytes32"
+					}
+				],
+				"name": "isActionQueued",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "targets",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "values",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string[]",
+						"name": "signatures",
+						"type": "string[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "calldatas",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "bool[]",
+						"name": "withDelegatecalls",
+						"type": "bool[]"
+					}
+				],
+				"name": "queue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiveFunds",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "delay",
+						"type": "uint256"
+					}
+				],
+				"name": "updateDelay",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "ethereumGovernanceExecutor",
+						"type": "address"
+					}
+				],
+				"name": "updateEthereumGovernanceExecutor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "gracePeriod",
+						"type": "uint256"
+					}
+				],
+				"name": "updateGracePeriod",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "guardian",
+						"type": "address"
+					}
+				],
+				"name": "updateGuardian",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "maximumDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "updateMaximumDelay",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "minimumDelay",
+						"type": "uint256"
+					}
+				],
+				"name": "updateMinimumDelay",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aave",
+			"details": "It does not implement the `onlyEthereumGovernanceExecutor` modifier. This should instead be done in the inheriting contract with proper configuration and adjustments depending on the L2",
+			"kind": "dev",
+			"methods": {
+				"cancel(uint256)": {
+					"params": {
+						"actionsSetId": "The id of the ActionsSet to cancel*"
+					}
+				},
+				"constructor": {
+					"details": "Constructor",
+					"params": {
+						"delay": "The delay before which an actions set can be executed",
+						"ethereumGovernanceExecutor": "The address of the EthereumGovernanceExecutor",
+						"gracePeriod": "The time period after a delay during which an actions set can be executed",
+						"guardian": "The address of the guardian, which can cancel queued proposals (can be zero)",
+						"maximumDelay": "The maximum bound a delay can be set to",
+						"minimumDelay": "The minimum bound a delay can be set to"
+					}
+				},
+				"execute(uint256)": {
+					"params": {
+						"actionsSetId": "The id of the ActionsSet to execute*"
+					}
+				},
+				"executeDelegateCall(address,bytes)": {
+					"details": "This function is external so it allows to specify a defined msg.value for the delegate call, reducing the risk that a delegatecall gets executed with more value than intended",
+					"returns": {
+						"_0": "True if the delegate call was successful, false otherwise",
+						"_1": "The bytes returned by the delegate call*"
+					}
+				},
+				"getActionsSetById(uint256)": {
+					"params": {
+						"actionsSetId": "The id of the ActionsSet"
+					},
+					"returns": {
+						"_0": "The data of the ActionsSet*"
+					}
+				},
+				"getActionsSetCount()": {
+					"returns": {
+						"_0": "The number of actions sets*"
+					}
+				},
+				"getCurrentState(uint256)": {
+					"params": {
+						"actionsSetId": "The id of the ActionsSet"
+					},
+					"returns": {
+						"_0": "The current state of theI ActionsSet*"
+					}
+				},
+				"getDelay()": {
+					"returns": {
+						"_0": "The value of the delay (in seconds)*"
+					}
+				},
+				"getEthereumGovernanceExecutor()": {
+					"returns": {
+						"_0": "The address of the EthereumGovernanceExecutor*"
+					}
+				},
+				"getGracePeriod()": {
+					"returns": {
+						"_0": "The value of the grace period (in seconds)*"
+					}
+				},
+				"getGuardian()": {
+					"returns": {
+						"_0": "The address of the guardian*"
+					}
+				},
+				"getMaximumDelay()": {
+					"returns": {
+						"_0": "The value of the maximum delay (in seconds)*"
+					}
+				},
+				"getMinimumDelay()": {
+					"returns": {
+						"_0": "The value of the minimum delay (in seconds)*"
+					}
+				},
+				"isActionQueued(bytes32)": {
+					"details": "actionHash = keccak256(abi.encode(target, value, signature, data, executionTime, withDelegatecall))",
+					"params": {
+						"actionHash": "hash of the action to be checked"
+					},
+					"returns": {
+						"_0": "True if the underlying action of actionHash is queued, false otherwise*"
+					}
+				},
+				"queue(address[],uint256[],string[],bytes[],bool[])": {
+					"details": "If a signature is empty, calldata is used for the execution, calldata is appended to signature otherwise",
+					"params": {
+						"calldatas": "Array of calldata to pass in each call by the actions set",
+						"signatures": "Array of function signatures to encode in each call by the actions (can be empty)",
+						"targets": "Array of targets to be called by the actions set",
+						"values": "Array of values to pass in each call by the actions set",
+						"withDelegatecalls": "Array of whether to delegatecall for each call of the actions set*"
+					}
+				},
+				"receiveFunds()": {
+					"details": "Useful for actionsSet that needs funds to gets executed"
+				},
+				"updateDelay(uint256)": {
+					"details": "It does not affect to actions set that are already queued",
+					"params": {
+						"delay": "The value of the delay (in seconds)*"
+					}
+				},
+				"updateEthereumGovernanceExecutor(address)": {
+					"params": {
+						"ethereumGovernanceExecutor": "The address of the new EthereumGovernanceExecutor*"
+					}
+				},
+				"updateGracePeriod(uint256)": {
+					"params": {
+						"gracePeriod": "The value of the grace period (in seconds)*"
+					}
+				},
+				"updateGuardian(address)": {
+					"params": {
+						"guardian": "The address of the new guardian*"
+					}
+				},
+				"updateMaximumDelay(uint256)": {
+					"params": {
+						"maximumDelay": "The maximum delay (in seconds)*"
+					}
+				},
+				"updateMinimumDelay(uint256)": {
+					"params": {
+						"minimumDelay": "The value of the minimum delay (in seconds)*"
+					}
+				}
+			},
+			"title": "L2BridgeExecutor",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"cancel(uint256)": {
+					"notice": "Cancel the ActionsSet"
+				},
+				"execute(uint256)": {
+					"notice": "Execute the ActionsSet"
+				},
+				"executeDelegateCall(address,bytes)": {
+					"notice": "Allows to delegatecall a given target with an specific amount of value"
+				},
+				"getActionsSetById(uint256)": {
+					"notice": "Returns the data of an actions set"
+				},
+				"getActionsSetCount()": {
+					"notice": "Returns the total number of actions sets of the executor"
+				},
+				"getCurrentState(uint256)": {
+					"notice": "Returns the current state of an actions set"
+				},
+				"getDelay()": {
+					"notice": "Returns the delay (between queuing and execution)"
+				},
+				"getEthereumGovernanceExecutor()": {
+					"notice": "Returns the address of the Ethereum Governance Executor"
+				},
+				"getGracePeriod()": {
+					"notice": "Returns the grace period"
+				},
+				"getGuardian()": {
+					"notice": "Returns the address of the guardian"
+				},
+				"getMaximumDelay()": {
+					"notice": "Returns the maximum delay"
+				},
+				"getMinimumDelay()": {
+					"notice": "Returns the minimum delay"
+				},
+				"isActionQueued(bytes32)": {
+					"notice": "Returns whether an actions set (by actionHash) is queued"
+				},
+				"queue(address[],uint256[],string[],bytes[],bool[])": {
+					"notice": "Queue an ActionsSet"
+				},
+				"receiveFunds()": {
+					"notice": "Allows to receive funds into the executor"
+				},
+				"updateDelay(uint256)": {
+					"notice": "Update the delay, time between queueing and execution of ActionsSet"
+				},
+				"updateEthereumGovernanceExecutor(address)": {
+					"notice": "Update the address of the Ethereum Governance Executor"
+				},
+				"updateGracePeriod(uint256)": {
+					"notice": "Update the grace period, the period after the execution time during which an actions set can be executed"
+				},
+				"updateGuardian(address)": {
+					"notice": "Update guardian"
+				},
+				"updateMaximumDelay(uint256)": {
+					"notice": "Update the maximum allowed delay"
+				},
+				"updateMinimumDelay(uint256)": {
+					"notice": "Update the minimum allowed delay"
+				}
+			},
+			"notice": "Abstract contract that implements bridge executor functionality for L2",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Governance Bridge/contracts/bridges/L2BridgeExecutor.sol": "L2BridgeExecutor"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Governance Bridge/contracts/bridges/BridgeExecutorBase.sol": {
+			"keccak256": "0x2a7c3a10aa572a5a23c6c32e56ad405bdc5041612923d314d2b69b9aec635237",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://f6d96fea95ad2d4a709ef019351cb8717f65e42fb2eeb929b3a2cc51c7700089",
+				"dweb:/ipfs/QmeJfX8sNkfwDbMTJvBjMxYU7U3NeV6J5HHNkhTmTYepaw"
+			]
+		},
+		"Governance Bridge/contracts/bridges/L2BridgeExecutor.sol": {
+			"keccak256": "0x19cb3242b3b48164444881739bdf8d8b0b53f942652828e4b4f6de4e3749c7df",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://7698aaf9f44e62716850cbe632114ef5705e740405b12448796600a088103700",
+				"dweb:/ipfs/QmbJT7hB5wW12L95AUhYBE44NKUzpgYSMxmRzZuNa8WCDG"
+			]
+		},
+		"Governance Bridge/contracts/interfaces/IExecutorBase.sol": {
+			"keccak256": "0x559e6a68e136f80c04734b6ddf22aa7ab50e8f1aff55c5b0f647bc2769e6ff06",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://1077c52ab832f0f6fa8ae7e1fc7f4529afbd0ad151ef8bdbf950b1449f0748d1",
+				"dweb:/ipfs/QmVegbuuLKdBSufijM8RChiAXs5EAUC6BHXf2NGFheFkDM"
+			]
+		},
+		"Governance Bridge/contracts/interfaces/IL2BridgeExecutor.sol": {
+			"keccak256": "0x268cc2db4f828460c91d3df5e93245aea0021bdcbc76468cec8aeb395f809a8c",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://3e5c7e98a86fc868443db0122125599c4fa3a5d613196807782b4cbaf516a9d0",
+				"dweb:/ipfs/QmdEXEw95eX8dfmUkfMCTevHnD8NFNmxnUiqo6uS4cWwjV"
+			]
+		}
+	},
+	"version": 1
+}

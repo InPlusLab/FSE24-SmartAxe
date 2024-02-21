@@ -1,0 +1,288 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_fxBridge",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "message",
+						"type": "bytes"
+					}
+				],
+				"name": "MessageSent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "rootToken",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "bridgeToken",
+						"type": "address"
+					}
+				],
+				"name": "TokenMapped",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEPOSIT",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAP_TOKEN",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PREFIX_SYMBOL",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SUFFIX_NAME",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fxBridge",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fxRootTunnel",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "stateId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "rootMessageSender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "processMessageFromRoot",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "rootToBridgeToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_fxRootTunnel",
+						"type": "address"
+					}
+				],
+				"name": "setFxRootTunnel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bridgeToken",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bridgeToken",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"title": "FxERC20BridgeTunnel",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Stream Gold Bridge/contracts/L2_polygon/sgt/erc20-transfer/FxERC20BridgeTunnel.sol": "FxERC20BridgeTunnel"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Stream Gold Bridge/contracts/L2_polygon/lib/IERC20.sol": {
+			"keccak256": "0x972e7a41b056a6ee639da2e8fced175dd24364e509adf0700dc77f5c8c70c0fc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a1876588fa11b0e6453f86d732a610653209ab7568ad3bc56d1eedd9d7317c8",
+				"dweb:/ipfs/QmSySsK69dVkyE1tzcV14qfxXJwq8CPvGD45E6JkSLKCDY"
+			]
+		},
+		"Stream Gold Bridge/contracts/L2_polygon/sgt/erc20-transfer/FxERC20BridgeTunnel.sol": {
+			"keccak256": "0x1a664431b44b408ea4716b8543ae5e1efb2ca80d9e24ecf49f8d983a4e96817b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5cfa4ab4aae3ab22b837128ea03ab063967d37f53b6b23b89f80aa292f7fad4f",
+				"dweb:/ipfs/QmZ3Q3czehBnjQNE4c8e6PG6BAZ46DNeEsiWSdsmudGGLa"
+			]
+		},
+		"Stream Gold Bridge/contracts/L2_polygon/tokens/IFxERC20.sol": {
+			"keccak256": "0x4448736b8348f84028fb5f9328b3c1ecc1a22a123a51f9f45698bb76d5401c86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://947b758aed02329e9dbf7ddf57296db79cd87db330b0f66b1e5fa0be45b860e9",
+				"dweb:/ipfs/QmZ2YvCN9sb1888MS2LXwdQ6GPgU3zZi1LuWuxb6tDcRHD"
+			]
+		},
+		"Stream Gold Bridge/contracts/L2_polygon/tunnel/FxBaseBridgeTunnel.sol": {
+			"keccak256": "0xececedc234591059f3c4f2a0cfbd8deb3aee738c10eb0e17effb3592d582ee22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://acdf831f83972d49fd370d5ab031b111eb6f426e2f2e0f003642f682fd679692",
+				"dweb:/ipfs/QmcZaVBtyfsoo8Y8qR27oK9jFR8vrzcyrYAxP1ksxXAHcc"
+			]
+		}
+	},
+	"version": 1
+}

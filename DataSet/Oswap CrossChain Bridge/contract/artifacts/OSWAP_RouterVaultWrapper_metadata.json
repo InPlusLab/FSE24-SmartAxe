@@ -1,0 +1,601 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "inToken",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "inAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Swap",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "contract OSWAP_ConfigStore",
+						"name": "newConfigStore",
+						"type": "address"
+					}
+				],
+				"name": "UpdateConfigStore",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "configStore",
+				"outputs": [
+					{
+						"internalType": "contract OSWAP_ConfigStore",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract OSWAP_ConfigStore",
+						"name": "_configStore",
+						"type": "address"
+					}
+				],
+				"name": "initAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "pair",
+						"type": "address[]"
+					},
+					{
+						"internalType": "contract IOSWAP_BridgeVault",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "peerChain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "outToken",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "minOutAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expire",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IOSWAP_BridgeVault.Order",
+						"name": "order",
+						"type": "tuple"
+					}
+				],
+				"name": "swapETHForExactTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "pair",
+						"type": "address[]"
+					},
+					{
+						"internalType": "contract IOSWAP_BridgeVault",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "peerChain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "outToken",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "minOutAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expire",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IOSWAP_BridgeVault.Order",
+						"name": "order",
+						"type": "tuple"
+					}
+				],
+				"name": "swapExactETHForTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "pair",
+						"type": "address[]"
+					},
+					{
+						"internalType": "contract IOSWAP_BridgeVault",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountIn",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "peerChain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "outToken",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "minOutAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expire",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IOSWAP_BridgeVault.Order",
+						"name": "order",
+						"type": "tuple"
+					}
+				],
+				"name": "swapExactTokensForTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "pair",
+						"type": "address[]"
+					},
+					{
+						"internalType": "contract IOSWAP_BridgeVault",
+						"name": "vault",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountIn",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "peerChain",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "inAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "outToken",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "minOutAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expire",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IOSWAP_BridgeVault.Order",
+						"name": "order",
+						"type": "tuple"
+					}
+				],
+				"name": "swapTokensForExactTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "orderId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateConfigStore",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Oswap CrossChain Bridge/contracts/OSWAP_RouterVaultWrapper.sol": "OSWAP_RouterVaultWrapper"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0x3088eb2868e8d13d89d16670b5f8612c4ab9ff8956272837d8e90106c59c14a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b81d9ff6559ea5c47fc573e17ece6d9ba5d6839e213e6ebc3b4c5c8fe4199d7f",
+				"dweb:/ipfs/QmPCW1bFisUzJkyjroY3yipwfism9RRCigCcK1hbXtVM8n"
+			]
+		},
+		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0x809bc3edb4bcbef8263fa616c1b60ee0004b50a8a1bfa164d8f57fd31f520c58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8b93a1e39a4a19eba1600b92c96f435442db88cac91e315c8291547a2a7bcfe2",
+				"dweb:/ipfs/QmTm34KVe6uZBZwq8dZDNWwPcm24qBJdxqL3rPxBJ4LrMv"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/Math.sol": {
+			"keccak256": "0xe4455ac1eb7fc497bb7402579e7b4d64d928b846fce7d2b6fde06d366f21c2b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc8841b3cd48ad125e2f46323c8bad3aa0e88e399ec62acb9e57efa7e7c8058c",
+				"dweb:/ipfs/QmSqE4mXHA2BXW58deDbXE8MTcsL5JSKNDbm23sVQxRLPS"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SignedMath.sol": {
+			"keccak256": "0xf92515413956f529d95977adc9b0567d583c6203fc31ab1c23824c35187e3ddc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c50fcc459e49a9858b6d8ad5f911295cb7c9ab57567845a250bf0153f84a95c7",
+				"dweb:/ipfs/QmcEW85JRzvDkQggxiBBLVAasXWdkhEysqypj9EaB6H2g6"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/Authorization.sol": {
+			"keccak256": "0x7ea9c16585fea50a97f1c06faa960cd9443da7edd3a6add189a6da866e5f7444",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://6a40ce9a5437bfae5beefb0cc9ba39147c184f12cdeb02fa00e38fafa0d22206",
+				"dweb:/ipfs/QmVaThTSRzmKUWvhN9RghJahfb3dvrpMRFvqbGCPGzFLPw"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_BridgeVaultTrollRegistry.sol": {
+			"keccak256": "0x661ac5a5ef87c39c1ec3c9093eb8547687f9fa0695209e66b44d8467173bb3f6",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://5ba54c055e611fc80d3b37d12732466f6333e05a4b1f7bfb72ab659f3c6a7e6e",
+				"dweb:/ipfs/QmSnQtcaaUCMdLYksQtBKb5GbbxGfHss2gsWKcjpY5kCfJ"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_ConfigStore.sol": {
+			"keccak256": "0x7f3702e86d31f766be627bc8086f2b10dae204b70907fd4f6ef713e4a44edf39",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://af7635b3673a82ab9f9b8fad1f786dc9ca5e7b28ba2a275556be4e6ac5b418d6",
+				"dweb:/ipfs/QmS8qVCR1f5j1D1wSn9VzPNqFpJ2vtJkKzE9usr9jfuU6N"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_RouterVaultWrapper.sol": {
+			"keccak256": "0xf3a41ea53d37ab39aaa80df6ff32f0f6a2822ddf5fb5ff95d9731fa2b5af7713",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://42f592d66a5dd446c3127897c79abbeaafcce921b83251b9dff2aab4fff721e8",
+				"dweb:/ipfs/QmacUNeevQVhUpJzG6bLqpTXgvAPyo1QAcDciXFFLV6kWv"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_SideChainTrollRegistry.sol": {
+			"keccak256": "0x226e0547745a4b84482bd9ffafd2f54ad4626784940d0b07795b0d07e9e1cbaf",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://9edce8a6aa85076080bbdcd762291d169ad141494df4667e36aaca1f6612493a",
+				"dweb:/ipfs/QmVoAJ19gihGjRHhmDFBoUN9QBf28ye7F5wuG7ZfYgoZkz"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IAuthorization.sol": {
+			"keccak256": "0x6b15a11bd4dbcc3e974ce261c0ac4e805ec61b63a6899048cfe32254cab91879",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://0167d98841b00d0300fc47d71048f8f526b5673ae08b981fc809dfc89b588543",
+				"dweb:/ipfs/QmRcNhEgqXYe2HB4K6LAWhJkNfbwNVUzbQY5bYYkMVn9ok"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVault.sol": {
+			"keccak256": "0x3ed9c90b34ebcfb3000a68ab8f377b5b6bda0182a10a19eb47d3db83783d9d77",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://09c5b36da40240ac26a488460996d63c8ac81c935dc4e9237ec432d2efd7cd51",
+				"dweb:/ipfs/QmUrnrp8k1NudjNHJ2U5gRV3ubx5GLJ2djDZdPScRvgHyg"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVaultTrollRegistry.sol": {
+			"keccak256": "0x0885ef4a2cdc3b2d21984ec09f2c968e6995b0b44861ad480b2a0b31c834dc53",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://f2a211df3212c2142731c8e9e8d04c4bb378f449d353d02d6a1974739e53af33",
+				"dweb:/ipfs/QmanrF1b7icAPKbemyN2WFoiQY9xZKBCUnazVXGwf2NZK2"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_ConfigStore.sol": {
+			"keccak256": "0xeaf8ba51a36e6e8690bed8679f5c5e2acb706bee39d4a2643e96146b9c3d8841",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://c4c0aab633024990a8e9233440cf0690543778f6901e60bd0f8c9d7c57c7c5cd",
+				"dweb:/ipfs/QmXb38Vh27XFUEnkpkpkC75BsNHbarvVXjGYU3MMzrtTCe"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_HybridRouter2.sol": {
+			"keccak256": "0x60e41f66f1190a595947ac3d691f2e23d12a78f2b63a702ee00b1242b708873b",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://811246471e6bc5ea94ad7522dfa7f2b623cf3ae2f3da6bff75bb2db17056265e",
+				"dweb:/ipfs/QmfVguHRNxMvokNhKjdVS1QzYYmoBmVepZinsXVYhLimsR"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SideChainTrollRegistry.sol": {
+			"keccak256": "0xa9e2666b966a78693854afc64f1f446d662f03a4548d802f707b7ece527bb951",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://7e0b12a84de5e35c9a166343fb07e609819e16fb95ad03ac8f4c47a0ad6ce4e6",
+				"dweb:/ipfs/QmSEWWE41hho9erVZCoH5k2aKTk9afZbRVWcxDDdPTE7cw"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SwapPolicy.sol": {
+			"keccak256": "0x948acaad231813064a66f08b6feb4e9e1d95588b2099a3a51e14468b89d68460",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://45cfc17764c88ada845e55a994f86c8cce04608b5c19a5efcaab4ca0b5b89a28",
+				"dweb:/ipfs/QmUZFrBeds3wBfjXWE2wFZcr4rNSx9JJtaoWJkvhfygNZC"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_VotingExecutorManager.sol": {
+			"keccak256": "0x3c4dc55140d46110096e167792a6e6e75578c0a7085f3f4f34176b3a6cc3157a",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://1671e93d00ad91bb5906184f18f78477f61b24e1bcf65a8ae742586f060c45c1",
+				"dweb:/ipfs/Qmbuv1wby89agZTJ4jQnXC9GrEWEdjRhqXNtYfFnrHefWE"
+			]
+		}
+	},
+	"version": 1
+}

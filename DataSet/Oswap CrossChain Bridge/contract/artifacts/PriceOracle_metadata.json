@@ -1,0 +1,187 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "latestAnswer",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Oswap CrossChain Bridge/contracts/OSWAP_BridgeVault.sol": "PriceOracle"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xa56ca923f70c1748830700250b19c61b70db9a683516dc5e216694a50445d99c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cac938788bc4be12101e59d45588b4e059579f4e61062e1cda8d6b06c0191b15",
+				"dweb:/ipfs/QmV2JKCyjTVH3rkWNrfdJRhAT7tZ3usAN2XcnD4h53Mvih"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_BridgeVault.sol": {
+			"keccak256": "0xd5b069b7de212bc5643c5b593ed4e8c082b105bac884c2838ef0e4f6afb1fbfe",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://d3f524c6d2c31de0e5b3bc04bdaeac113bfb4c4f48ad388c24fac1accb08ef2f",
+				"dweb:/ipfs/QmeE2UciFvPbuShAsDpD2XSgP5poYnto7dSFWrsWXERD6Z"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IAuthorization.sol": {
+			"keccak256": "0x6b15a11bd4dbcc3e974ce261c0ac4e805ec61b63a6899048cfe32254cab91879",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://0167d98841b00d0300fc47d71048f8f526b5673ae08b981fc809dfc89b588543",
+				"dweb:/ipfs/QmRcNhEgqXYe2HB4K6LAWhJkNfbwNVUzbQY5bYYkMVn9ok"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVault.sol": {
+			"keccak256": "0x3ed9c90b34ebcfb3000a68ab8f377b5b6bda0182a10a19eb47d3db83783d9d77",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://09c5b36da40240ac26a488460996d63c8ac81c935dc4e9237ec432d2efd7cd51",
+				"dweb:/ipfs/QmUrnrp8k1NudjNHJ2U5gRV3ubx5GLJ2djDZdPScRvgHyg"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVaultTrollRegistry.sol": {
+			"keccak256": "0x0885ef4a2cdc3b2d21984ec09f2c968e6995b0b44861ad480b2a0b31c834dc53",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://f2a211df3212c2142731c8e9e8d04c4bb378f449d353d02d6a1974739e53af33",
+				"dweb:/ipfs/QmanrF1b7icAPKbemyN2WFoiQY9xZKBCUnazVXGwf2NZK2"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_ConfigStore.sol": {
+			"keccak256": "0xeaf8ba51a36e6e8690bed8679f5c5e2acb706bee39d4a2643e96146b9c3d8841",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://c4c0aab633024990a8e9233440cf0690543778f6901e60bd0f8c9d7c57c7c5cd",
+				"dweb:/ipfs/QmXb38Vh27XFUEnkpkpkC75BsNHbarvVXjGYU3MMzrtTCe"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_HybridRouter2.sol": {
+			"keccak256": "0x60e41f66f1190a595947ac3d691f2e23d12a78f2b63a702ee00b1242b708873b",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://811246471e6bc5ea94ad7522dfa7f2b623cf3ae2f3da6bff75bb2db17056265e",
+				"dweb:/ipfs/QmfVguHRNxMvokNhKjdVS1QzYYmoBmVepZinsXVYhLimsR"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SideChainTrollRegistry.sol": {
+			"keccak256": "0xa9e2666b966a78693854afc64f1f446d662f03a4548d802f707b7ece527bb951",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://7e0b12a84de5e35c9a166343fb07e609819e16fb95ad03ac8f4c47a0ad6ce4e6",
+				"dweb:/ipfs/QmSEWWE41hho9erVZCoH5k2aKTk9afZbRVWcxDDdPTE7cw"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SwapPolicy.sol": {
+			"keccak256": "0x948acaad231813064a66f08b6feb4e9e1d95588b2099a3a51e14468b89d68460",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://45cfc17764c88ada845e55a994f86c8cce04608b5c19a5efcaab4ca0b5b89a28",
+				"dweb:/ipfs/QmUZFrBeds3wBfjXWE2wFZcr4rNSx9JJtaoWJkvhfygNZC"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_VotingExecutorManager.sol": {
+			"keccak256": "0x3c4dc55140d46110096e167792a6e6e75578c0a7085f3f4f34176b3a6cc3157a",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://1671e93d00ad91bb5906184f18f78477f61b24e1bcf65a8ae742586f060c45c1",
+				"dweb:/ipfs/Qmbuv1wby89agZTJ4jQnXC9GrEWEdjRhqXNtYfFnrHefWE"
+			]
+		}
+	},
+	"version": 1
+}

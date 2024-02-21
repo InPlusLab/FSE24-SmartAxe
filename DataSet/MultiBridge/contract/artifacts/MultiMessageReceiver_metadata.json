@@ -1,0 +1,785 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "ARRAY_LENGTH_MISMATCHED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "CALLER_NOT_GOVERNANCE_TIMELOCK",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "DUPLICATE_MESSAGE_DELIVERY_BY_ADAPTER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_DST_CHAIN",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_QUORUM_FOR_EXECUTION",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_QUORUM_THRESHOLD",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_RECEIVER_ADAPTER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_SENDER_CHAIN_ID",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_TARGET",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MSG_EXECUTION_PASSED_DEADLINE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MSG_ID_ALREADY_EXECUTED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_ADDRESS_INPUT",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_GOVERNANCE_TIMELOCK",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_RECEIVER_ADAPTER",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "msgId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nativeValue",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "callData",
+						"type": "bytes"
+					}
+				],
+				"name": "MessageExecuted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "oldValue",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "newValue",
+						"type": "uint64"
+					}
+				],
+				"name": "QuorumUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "receiverAdapter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "add",
+						"type": "bool"
+					}
+				],
+				"name": "ReceiverAdapterUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "msgId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "bridgeName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "receiverAdapter",
+						"type": "address"
+					}
+				],
+				"name": "SingleBridgeMsgReceived",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "msgId",
+						"type": "bytes32"
+					}
+				],
+				"name": "executeMessage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "msgId",
+						"type": "bytes32"
+					}
+				],
+				"name": "getMessageInfo",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "governanceTimelock",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_receiverAdapters",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool[]",
+						"name": "_operations",
+						"type": "bool[]"
+					},
+					{
+						"internalType": "uint64",
+						"name": "_quorum",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address",
+						"name": "_governanceTimelock",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isDuplicateAdapter",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "isExecuted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_executor",
+						"type": "address"
+					}
+				],
+				"name": "isTrustedExecutor",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "messageVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "msgReceived",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "callData",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nonce",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expiration",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "quorum",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "srcChainId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dstChainId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "target",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nonce",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "callData",
+								"type": "bytes"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nativeValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "expiration",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct MessageLibrary.Message",
+						"name": "_message",
+						"type": "tuple"
+					},
+					{
+						"internalType": "string",
+						"name": "_bridgeName",
+						"type": "string"
+					}
+				],
+				"name": "receiveMessage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "trustedExecutor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_quorum",
+						"type": "uint64"
+					}
+				],
+				"name": "updateQuorum",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_newQuorum",
+						"type": "uint64"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_receiverAdapters",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool[]",
+						"name": "_operations",
+						"type": "bool[]"
+					}
+				],
+				"name": "updateQuorumAndReceiverAdapter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_receiverAdapters",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool[]",
+						"name": "_operations",
+						"type": "bool[]"
+					}
+				],
+				"name": "updateReceiverAdapters",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "receives message from bridge adapters",
+			"errors": {
+				"ARRAY_LENGTH_MISMATCHED()": [
+					{
+						"details": "is thrown if the length of two arrays are mismatched"
+					}
+				],
+				"CALLER_NOT_GOVERNANCE_TIMELOCK()": [
+					{
+						"details": "is thrown if caller is not governance timelock contract"
+					}
+				],
+				"DUPLICATE_MESSAGE_DELIVERY_BY_ADAPTER()": [
+					{
+						"details": "is thrown if bridge adapter already delivered the message to multi message receiver"
+					}
+				],
+				"INVALID_DST_CHAIN()": [
+					{
+						"details": "is thrown when the destination chain id is invalid"
+					}
+				],
+				"INVALID_QUORUM_FOR_EXECUTION()": [
+					{
+						"details": "is thrown if quorum is not reached"
+					}
+				],
+				"INVALID_QUORUM_THRESHOLD()": [
+					{
+						"details": "is thrown if quorum threshold is greater than receiver adapters"
+					}
+				],
+				"INVALID_RECEIVER_ADAPTER()": [
+					{
+						"details": "is thrown if caller is invalid receiver adapter"
+					}
+				],
+				"INVALID_SENDER_CHAIN_ID()": [
+					{
+						"details": "is thrown if sender chain is not allowed on reciever adapter"
+					}
+				],
+				"INVALID_TARGET()": [
+					{
+						"details": "is thrown if the target is invalid in remote call"
+					}
+				],
+				"MSG_EXECUTION_PASSED_DEADLINE()": [
+					{
+						"details": "is thrown if deadline is lapsed"
+					}
+				],
+				"MSG_ID_ALREADY_EXECUTED()": [
+					{
+						"details": "is thrown if msg id is already executed"
+					}
+				],
+				"ZERO_ADDRESS_INPUT()": [
+					{
+						"details": "is thrown when input is zero address"
+					}
+				],
+				"ZERO_GOVERNANCE_TIMELOCK()": [
+					{
+						"details": "is thrown if timelock governance address input is zero"
+					}
+				],
+				"ZERO_RECEIVER_ADAPTER()": [
+					{
+						"details": "is thrown if receiver adapter is zero address"
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"executeMessage(bytes32)": {
+					"details": "has reached the power threshold (the same message has been delivered by enough multiple bridges). Param values can be found in the MultiMessageMsgSent event from the source chain MultiMessageSender contract."
+				},
+				"isTrustedExecutor(address)": {
+					"params": {
+						"_executor": "Address to check"
+					}
+				},
+				"receiveMessage((uint256,uint256,address,uint256,bytes,uint256,uint256),string)": {
+					"params": {
+						"_bridgeName": "is the name of the bridge the relays the message",
+						"_message": "is the crosschain message sent by the mma sender"
+					}
+				},
+				"updateQuorumAndReceiverAdapter(uint64,address[],bool[])": {
+					"details": "called by admin to update receiver bridge adapters on all other chains"
+				},
+				"updateReceiverAdapters(address[],bool[])": {
+					"details": "called by admin to update receiver bridge adapters on all other chains"
+				}
+			},
+			"stateVariables": {
+				"governanceTimelock": {
+					"details": "is the address of governance timelock"
+				}
+			},
+			"title": "MultiMessageReceiver",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"executeMessage(bytes32)": {
+					"notice": "Execute the message (invoke external call according to the message content) if the message"
+				},
+				"getMessageInfo(bytes32)": {
+					"notice": "view message info, return (executed, msgPower, delivered adapters)"
+				},
+				"initialize(address[],bool[],uint64,address)": {
+					"notice": "sets the initial parameters"
+				},
+				"isExecuted(bytes32)": {
+					"notice": "stores each msg id related info"
+				},
+				"isTrustedExecutor(address)": {
+					"notice": "Check which executor this contract trust."
+				},
+				"quorum()": {
+					"notice": "minimum number of AMBs required for delivery before execution"
+				},
+				"receiveMessage((uint256,uint256,address,uint256,bytes,uint256,uint256),string)": {
+					"notice": "receive messages from allowed bridge receiver adapters"
+				},
+				"trustedExecutor(uint256)": {
+					"notice": "Address of the trusted executor contract."
+				},
+				"updateQuorum(uint64)": {
+					"notice": "Update power quorum threshold of message execution."
+				},
+				"updateQuorumAndReceiverAdapter(uint64,address[],bool[])": {
+					"notice": "Update bridge receiver adapters after quorum update"
+				},
+				"updateReceiverAdapters(address[],bool[])": {
+					"notice": "Update bridge receiver adapters."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MultiBridge/src/MultiMessageReceiver.sol": "MultiMessageReceiver"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/proxy/utils/Initializable.sol": {
+			"keccak256": "0x3d6069be9b4c01fb81840fb9c2c4dc58dd6a6a4aafaa2c6837de8699574d84c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://720d6bb56ea0c4ef781c0bd65c5bd0541f5a46100163b2587170f97658d2deed",
+				"dweb:/ipfs/QmTS2biLVPrv8CeeXCaKmkFxonMiRvc1LxiYBRYDAJHQUS"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"MultiBridge/src/MultiMessageReceiver.sol": {
+			"keccak256": "0xecbdaa546d2c659ccee827a59fc080187f5a76154caf8efe589338aa47dc5df5",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://53186aec1c352a44eda2b18ed9cbdfcafd0fb1c51acbd99f670312ecbbecb430",
+				"dweb:/ipfs/QmSBzJH6WGCSwsjMboJGRmHhjK1z9PYh5SZa5Lsffk867a"
+			]
+		},
+		"MultiBridge/src/interfaces/EIP5164/ExecutorAware.sol": {
+			"keccak256": "0xab6061d03d6264a4a7f03586b4496ea2fc7abb30ab15df6a6f8c688b0b766d90",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://a21fcac84cf7ba1bb0ce2c43453dde3231977aaa8de7725eeaf28fb9cf76f9ea",
+				"dweb:/ipfs/QmXGyRY9iLMQ6gtBgJg5Evkuapn2Ag7QXnF8jgcy7sGsuK"
+			]
+		},
+		"MultiBridge/src/interfaces/EIP5164/MessageExecutor.sol": {
+			"keccak256": "0x0c8c1eb56f3d284f9e978da276b258c53812bfac76f32a8787e606b10983d153",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://323b312fe5139aef4aa9daeb2c6476e430ec30a5f08ccda564b49997e9827e3c",
+				"dweb:/ipfs/QmPRoxYzciqFvA4aN1qgmptUwE1918xeBzDmSpN99dzngD"
+			]
+		},
+		"MultiBridge/src/interfaces/IBridgeReceiverAdapter.sol": {
+			"keccak256": "0x08fb71f57c870eeb3bf179c2c1d68dae9005b9ea510d8b5e936002b9e9482c9f",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://5290837f67881df7e91e8d49f221c02a15cae035735b785c16f66591ee8692bf",
+				"dweb:/ipfs/QmeFyUy1mKMfNJk6QQCJs2d9SKtDWophjQge3nfjJ7aArM"
+			]
+		},
+		"MultiBridge/src/interfaces/IGovernanceTimelock.sol": {
+			"keccak256": "0xcfed7c0279fc44c2d2b55789e61c055729bf18fcc35d6fd1b02ea624783add90",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://db933500cdaf905bb2cd49587b39e58ce83e987b932a180e7efd9fa9d6c7abac",
+				"dweb:/ipfs/Qmdikt7fifCoSwDAgYuDmhp1Hpd4GSsbF9EsW4WFzeRsmc"
+			]
+		},
+		"MultiBridge/src/interfaces/IMultiMessageReceiver.sol": {
+			"keccak256": "0x4c98a50d5eacd1a138d97eb0713a91d6673404c2afaf413b2ed03e44bd4dcaad",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://49bb8c7689e888587258a09701f6d988fcd005ed94a862e540ada370e940fe1f",
+				"dweb:/ipfs/QmezhKUWvJ1MeYTZoRiayZCWaVPJptKWuVPfKhdxgbvSbD"
+			]
+		},
+		"MultiBridge/src/libraries/Error.sol": {
+			"keccak256": "0x7cf8063b758942c8ce20c232d0ace4cc2da248c09853458532ab1ec871ade656",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://dae7d07d1820c554a52292e368f07baea1843a89e3218e44c5bebb1bf8f63cfa",
+				"dweb:/ipfs/QmbS1EuMWRfoWnMoEC4EtjfHGbBYxBUazk6T8fNKhS1jSt"
+			]
+		},
+		"MultiBridge/src/libraries/Message.sol": {
+			"keccak256": "0xfe76282bbb8810ff131629e008a7d8cfa1b87105db7327fb7439985e49812d62",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://d80934a40b4042690ba682909cbce65acd81954b80c5125a840be9a6d8c25227",
+				"dweb:/ipfs/QmVp3EUwTgx9dW5pPyR4k6sCCVBVPj6BeTybGgX1hm4QEh"
+			]
+		}
+	},
+	"version": 1
+}

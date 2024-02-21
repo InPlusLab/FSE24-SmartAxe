@@ -1,0 +1,220 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "bridgeEmpty",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "bridgeOnOtherSideNeedsLiqudity",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "bridgedAlready",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "msgValueNot1003",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "msgValueZero",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "notExternalBridge",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "notOwnerAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ownerBridgeUsersBeforeWithdraw",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "queueIsEmpty",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "queueNotEmpty",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dequeue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "first",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "last",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockTokensForOptimism",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"name": "mockOwnerOptimismBridgeAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "optimismBridgeInstance",
+				"outputs": [
+					{
+						"internalType": "contract MockOptimismBridge",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ownerAddBridgeLiqudity",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ownerRemoveBridgeLiqudity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ownerUnlockGoerliETH",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "queue",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"WeiBridge/contracts/MockBridgeMsgValue.sol": "MockGoerliBridge"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"WeiBridge/contracts/MockBridgeMsgValue.sol": {
+			"keccak256": "0xd8dba8243f3d9708daa47d4124c172c687ff13e467bc552e6a5e0a3092f18743",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7e8491b24496fda4a7f161f56d8314cbf06f4f3317761574126bf973d64596ff",
+				"dweb:/ipfs/QmdBsTGWXDHrfpomNjf1n4x85VB4V3Y9FhcG9cK2tpibXu"
+			]
+		}
+	},
+	"version": 1
+}

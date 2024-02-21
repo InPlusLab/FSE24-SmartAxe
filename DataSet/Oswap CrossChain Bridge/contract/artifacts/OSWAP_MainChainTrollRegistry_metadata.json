@@ -1,0 +1,1852 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_govToken",
+						"type": "address"
+					},
+					{
+						"internalType": "contract I_TrollNFT[]",
+						"name": "_superTrollNft",
+						"type": "address[]"
+					},
+					{
+						"internalType": "contract I_TrollNFT[]",
+						"name": "_generalTrollNft",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "troll",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isSuperTroll",
+						"type": "bool"
+					}
+				],
+				"name": "AddTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "Authorize",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "blocked",
+						"type": "bool"
+					}
+				],
+				"name": "BlockNftTokenId",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "Deauthorize",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Resume",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Shutdown",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesChange",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "StakeGeneralTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesChange",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "StakeSuperTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "StartOwnershipTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "TransferOwnership",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesChange",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "UnstakeGeneralTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesChange",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "stakesBalance",
+						"type": "uint256"
+					}
+				],
+				"name": "UnstakeSuperTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+						"name": "trollType",
+						"type": "uint8"
+					}
+				],
+				"name": "UpdateNFT",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldTroll",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newTroll",
+						"type": "address"
+					}
+				],
+				"name": "UpdateTroll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "contract OSWAP_VotingManager",
+						"name": "newVotingManager",
+						"type": "address"
+					}
+				],
+				"name": "UpdateVotingManager",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newTrollRegistry",
+						"type": "address"
+					}
+				],
+				"name": "Upgrade",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addStakesGeneralTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addStakesSuperTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "troll",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isSuperTroll",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "addTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "backerStaking",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract I_TrollNFT",
+								"name": "nft",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "trollProfileIndex",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.StakeTo[]",
+						"name": "stakings",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "deny",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					}
+				],
+				"name": "getStakeTo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract I_TrollNFT",
+								"name": "nft",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "trollProfileIndex",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.StakeTo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getStakedBy",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract I_TrollNFT",
+								"name": "nft",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.Nft[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "troll",
+						"type": "address"
+					}
+				],
+				"name": "getStakes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalStakes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getStakesByTrollProfile",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalStakes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getTrollByNft",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "troll",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getTrollProperties",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "troll",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+								"name": "trollType",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nftCount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.TrollProfile",
+						"name": "troll",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract I_TrollNFT",
+								"name": "nft",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.Nft[]",
+						"name": "nfts",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "backers",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "trollAddress",
+						"type": "address"
+					}
+				],
+				"name": "getTrollPropertiesByAddress",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "troll",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+								"name": "trollType",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nftCount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.TrollProfile",
+						"name": "troll",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "contract I_TrollNFT",
+								"name": "nft",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.Nft[]",
+						"name": "nfts",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "backers",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"name": "getTrolls",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "owner",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "troll",
+								"type": "address"
+							},
+							{
+								"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+								"name": "trollType",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nftCount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OSWAP_MainChainTrollRegistry.TrollProfile[]",
+						"name": "trolls",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "govToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract OSWAP_VotingManager",
+						"name": "_votingManager",
+						"type": "address"
+					}
+				],
+				"name": "initAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isPermitted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newTrollRegistry",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "nftType",
+				"outputs": [
+					{
+						"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC721Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "ownerTrolls",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "ownerTrollsLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "permit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resume",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shutdownByAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shutdownByVoting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeGeneralTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stakeOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeSuperTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeTo",
+				"outputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeToInv",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "backer",
+						"type": "address"
+					}
+				],
+				"name": "stakeToLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakedBy",
+				"outputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakedByInv",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "stakedByLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "takeOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalStake",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner_",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "trollNft",
+				"outputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "trollNftInv",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "trollNftLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "trollProfileInv",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "trollProfiles",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "troll",
+						"type": "address"
+					},
+					{
+						"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+						"name": "trollType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nftCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "trollProfilesLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "length",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "unstakeGeneralTroll",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "unstakeSuperTroll",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract I_TrollNFT",
+						"name": "nft",
+						"type": "address"
+					},
+					{
+						"internalType": "enum OSWAP_MainChainTrollRegistry.TrollType",
+						"name": "trolltype",
+						"type": "uint8"
+					}
+				],
+				"name": "updateNft",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "trollProfileIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "newTroll",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signature",
+						"type": "bytes"
+					}
+				],
+				"name": "updateTroll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateVotingManager",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_trollRegistry",
+						"type": "address"
+					}
+				],
+				"name": "upgrade",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_trollRegistry",
+						"type": "address"
+					}
+				],
+				"name": "upgradeByAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "votingManager",
+				"outputs": [
+					{
+						"internalType": "contract OSWAP_VotingManager",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"onERC721Received(address,address,uint256,bytes)": {
+					"details": "See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Oswap CrossChain Bridge/contracts/OSWAP_MainChainTrollRegistry.sol": "OSWAP_MainChainTrollRegistry"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+				"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol": {
+			"keccak256": "0xec63854014a5b4f2b3290ab9103a21bdf902a508d0f41a8573fea49e98bf571a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc5b5dc12fbc4002f282eaa7a5f06d8310ed62c1c77c5770f6283e058454c39a",
+				"dweb:/ipfs/Qme9rE2wS3yBuyJq9GgbmzbsBQsW2M2sVFqYYLw7bosGrv"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+			"keccak256": "0xabefac93435967b4d36a4fabcbdbb918d1f0b7ae3c3d85bc30923b326c927ed1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9d213d3befca47da33f6db0310826bcdb148299805c10d77175ecfe1d06a9a68",
+				"dweb:/ipfs/QmRgCn6SP1hbBkExUADFuDo8xkT4UU47yjNF5FhCeRbQmS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4",
+				"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+			"keccak256": "0xa82b58eca1ee256be466e536706850163d2ec7821945abd6b4778cfb3bee37da",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e75cf83beb757b8855791088546b8337e9d4684e169400c20d44a515353b708",
+				"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol": {
+			"keccak256": "0x67ef46fef257faae47adb630aad49694dda0334e5f7a7c5fb386243b974886b5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c63284cf05ff845109190961e72ca27bd6a7b997f053d2ce21db83e9e285085c",
+				"dweb:/ipfs/QmQBQVYJRzscToP6YaTRDvwYeLmr4V7kD1PjoG9mRpUYzU"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"@openzeppelin/contracts/utils/Strings.sol": {
+			"keccak256": "0x3088eb2868e8d13d89d16670b5f8612c4ab9ff8956272837d8e90106c59c14a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b81d9ff6559ea5c47fc573e17ece6d9ba5d6839e213e6ebc3b4c5c8fe4199d7f",
+				"dweb:/ipfs/QmPCW1bFisUzJkyjroY3yipwfism9RRCigCcK1hbXtVM8n"
+			]
+		},
+		"@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+			"keccak256": "0x809bc3edb4bcbef8263fa616c1b60ee0004b50a8a1bfa164d8f57fd31f520c58",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8b93a1e39a4a19eba1600b92c96f435442db88cac91e315c8291547a2a7bcfe2",
+				"dweb:/ipfs/QmTm34KVe6uZBZwq8dZDNWwPcm24qBJdxqL3rPxBJ4LrMv"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/Math.sol": {
+			"keccak256": "0xe4455ac1eb7fc497bb7402579e7b4d64d928b846fce7d2b6fde06d366f21c2b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cc8841b3cd48ad125e2f46323c8bad3aa0e88e399ec62acb9e57efa7e7c8058c",
+				"dweb:/ipfs/QmSqE4mXHA2BXW58deDbXE8MTcsL5JSKNDbm23sVQxRLPS"
+			]
+		},
+		"@openzeppelin/contracts/utils/math/SignedMath.sol": {
+			"keccak256": "0xf92515413956f529d95977adc9b0567d583c6203fc31ab1c23824c35187e3ddc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c50fcc459e49a9858b6d8ad5f911295cb7c9ab57567845a250bf0153f84a95c7",
+				"dweb:/ipfs/QmcEW85JRzvDkQggxiBBLVAasXWdkhEysqypj9EaB6H2g6"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/Authorization.sol": {
+			"keccak256": "0x7ea9c16585fea50a97f1c06faa960cd9443da7edd3a6add189a6da866e5f7444",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://6a40ce9a5437bfae5beefb0cc9ba39147c184f12cdeb02fa00e38fafa0d22206",
+				"dweb:/ipfs/QmVaThTSRzmKUWvhN9RghJahfb3dvrpMRFvqbGCPGzFLPw"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_ChainRegistry.sol": {
+			"keccak256": "0xbe80a0e0737f19baf34300be676c28d5c039985829db9005e94d66db74b6caea",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://6e4ffb251fea787e5b558f98a797c31e86a5b6f5458f5eeafea6930ad6c74046",
+				"dweb:/ipfs/QmbrmfwhHzVRwJc3KBPaUXxg4DSTGQ8PLiU4MzyE2bdDut"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_ConfigStore.sol": {
+			"keccak256": "0x7f3702e86d31f766be627bc8086f2b10dae204b70907fd4f6ef713e4a44edf39",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://af7635b3673a82ab9f9b8fad1f786dc9ca5e7b28ba2a275556be4e6ac5b418d6",
+				"dweb:/ipfs/QmS8qVCR1f5j1D1wSn9VzPNqFpJ2vtJkKzE9usr9jfuU6N"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_MainChainTrollRegistry.sol": {
+			"keccak256": "0xe3c34befd625bbfb0240fc6bc3df834d33c630f9805c9ecdba2a1150a79d1be8",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://a0edd22b4f7f51a594454d7a785d5fa377a3e188141d0b32772ae13f57be4658",
+				"dweb:/ipfs/QmV3P2afsKiRYXWRmjavnLPLG849ZZssF6RNLCuYszj1ht"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_MainChainVotingExecutor.sol": {
+			"keccak256": "0xd3fb5f4dda16e2832fbdb9683b02db0b22f3dec947f597e5b842a0571fab2e24",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://c5e09993a2cc41c4a4782f000d14a9abd665e287440b104d6b646379413e841b",
+				"dweb:/ipfs/QmYWC9jHLDvc8xEL3GBkvk3HQJNdnrUWR7feSbEpsR4h9j"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_VotingContract.sol": {
+			"keccak256": "0xd3f1b62ff0824333308fbdebcec3e8866e263ca9f76dbf38f19b3bcdf8a8253d",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://a260b2279484169ec47bb953acbedeba1c117649bc44f9f4b21fc37b71bb9468",
+				"dweb:/ipfs/Qmeo4wgmJih1fckZn976TsS3jQJbhpdRRA3tpn5r95GiA2"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_VotingManager.sol": {
+			"keccak256": "0x8eb2906a06497e45948c2fc12734388cf6b7d9593561ca1cab6d2428839bd0cc",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://220f38aadb0b8d305f1d2434233f240f1685d4d2886909c0bc844369547b8e60",
+				"dweb:/ipfs/QmU5MuYRjLYGvWMnT4PbhebsMMT3epKDr4YhoC4uhYCwPr"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/OSWAP_VotingRegistry.sol": {
+			"keccak256": "0x891bc9adaf0fbeb455a29031990fc59b44b50cee4db978f24677ba2d04845501",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://8832a6339a6d740dbe4dddfe8089a573e6f0d66609b278c4201ae1fbc1cbb605",
+				"dweb:/ipfs/QmSJszYmxDvqXZpMtzmGQGiRLH1L6SsKuwNvq6xsbsFx5Q"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IAuthorization.sol": {
+			"keccak256": "0x6b15a11bd4dbcc3e974ce261c0ac4e805ec61b63a6899048cfe32254cab91879",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://0167d98841b00d0300fc47d71048f8f526b5673ae08b981fc809dfc89b588543",
+				"dweb:/ipfs/QmRcNhEgqXYe2HB4K6LAWhJkNfbwNVUzbQY5bYYkMVn9ok"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVault.sol": {
+			"keccak256": "0x3ed9c90b34ebcfb3000a68ab8f377b5b6bda0182a10a19eb47d3db83783d9d77",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://09c5b36da40240ac26a488460996d63c8ac81c935dc4e9237ec432d2efd7cd51",
+				"dweb:/ipfs/QmUrnrp8k1NudjNHJ2U5gRV3ubx5GLJ2djDZdPScRvgHyg"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_BridgeVaultTrollRegistry.sol": {
+			"keccak256": "0x0885ef4a2cdc3b2d21984ec09f2c968e6995b0b44861ad480b2a0b31c834dc53",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://f2a211df3212c2142731c8e9e8d04c4bb378f449d353d02d6a1974739e53af33",
+				"dweb:/ipfs/QmanrF1b7icAPKbemyN2WFoiQY9xZKBCUnazVXGwf2NZK2"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_ConfigStore.sol": {
+			"keccak256": "0xeaf8ba51a36e6e8690bed8679f5c5e2acb706bee39d4a2643e96146b9c3d8841",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://c4c0aab633024990a8e9233440cf0690543778f6901e60bd0f8c9d7c57c7c5cd",
+				"dweb:/ipfs/QmXb38Vh27XFUEnkpkpkC75BsNHbarvVXjGYU3MMzrtTCe"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SideChainTrollRegistry.sol": {
+			"keccak256": "0xa9e2666b966a78693854afc64f1f446d662f03a4548d802f707b7ece527bb951",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://7e0b12a84de5e35c9a166343fb07e609819e16fb95ad03ac8f4c47a0ad6ce4e6",
+				"dweb:/ipfs/QmSEWWE41hho9erVZCoH5k2aKTk9afZbRVWcxDDdPTE7cw"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_SwapPolicy.sol": {
+			"keccak256": "0x948acaad231813064a66f08b6feb4e9e1d95588b2099a3a51e14468b89d68460",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://45cfc17764c88ada845e55a994f86c8cce04608b5c19a5efcaab4ca0b5b89a28",
+				"dweb:/ipfs/QmUZFrBeds3wBfjXWE2wFZcr4rNSx9JJtaoWJkvhfygNZC"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/IOSWAP_VotingExecutorManager.sol": {
+			"keccak256": "0x3c4dc55140d46110096e167792a6e6e75578c0a7085f3f4f34176b3a6cc3157a",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://1671e93d00ad91bb5906184f18f78477f61b24e1bcf65a8ae742586f060c45c1",
+				"dweb:/ipfs/Qmbuv1wby89agZTJ4jQnXC9GrEWEdjRhqXNtYfFnrHefWE"
+			]
+		},
+		"Oswap CrossChain Bridge/contracts/interfaces/I_TrollNFT.sol": {
+			"keccak256": "0x3d27481ae41cb7e18155d836b199e50fc6de4cf9568bf206de0f4e7198470ed3",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://244f494624455f3a927f870170592b66e22c5f62929e37ac98e597d10cccd147",
+				"dweb:/ipfs/QmekiiGT4nmge7WT9pNqBa1L3TQSvMqNfLrq8cwvMAnz8v"
+			]
+		}
+	},
+	"version": 1
+}

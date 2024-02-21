@@ -1,0 +1,122 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "message",
+						"type": "bytes"
+					}
+				],
+				"name": "MessageSent",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "fxBridge",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fxRootTunnel",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "stateId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "rootMessageSender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "processMessageFromRoot",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_fxRootTunnel",
+						"type": "address"
+					}
+				],
+				"name": "setFxRootTunnel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "Mock bridge tunnel contract to receive and send message from L2",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Stream Gold Bridge/contracts/L2_polygon/tunnel/FxBaseBridgeTunnel.sol": "FxBaseBridgeTunnel"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Stream Gold Bridge/contracts/L2_polygon/tunnel/FxBaseBridgeTunnel.sol": {
+			"keccak256": "0xececedc234591059f3c4f2a0cfbd8deb3aee738c10eb0e17effb3592d582ee22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://acdf831f83972d49fd370d5ab031b111eb6f426e2f2e0f003642f682fd679692",
+				"dweb:/ipfs/QmcZaVBtyfsoo8Y8qR27oK9jFR8vrzcyrYAxP1ksxXAHcc"
+			]
+		}
+	},
+	"version": 1
+}
