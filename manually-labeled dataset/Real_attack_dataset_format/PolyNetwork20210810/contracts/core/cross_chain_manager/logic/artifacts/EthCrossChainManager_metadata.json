@@ -1,0 +1,646 @@
+{
+	"compiler": {
+		"version": "0.5.1+commit.c8a2cb62"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "EthCrossChainDataAddress",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "contractMethodWhiteList",
+						"type": "bytes[]"
+					}
+				],
+				"name": "removeContractMethodWhiteList",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "rawHeader",
+						"type": "bytes"
+					},
+					{
+						"name": "pubKeyList",
+						"type": "bytes"
+					},
+					{
+						"name": "sigList",
+						"type": "bytes"
+					}
+				],
+				"name": "changeBookKeeper",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "rawHeader",
+						"type": "bytes"
+					},
+					{
+						"name": "pubKeyList",
+						"type": "bytes"
+					}
+				],
+				"name": "initGenesisBlock",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_newChainId",
+						"type": "uint64"
+					}
+				],
+				"name": "setChainId",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newEthCrossChainManagerAddress",
+						"type": "address"
+					}
+				],
+				"name": "upgradeToNew",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "pause",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "isOwner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newWL",
+						"type": "address"
+					}
+				],
+				"name": "setWhiteLister",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "chainId",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "fromContractWhiteList",
+						"type": "address[]"
+					}
+				],
+				"name": "setFromContractWhiteList",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "toChainId",
+						"type": "uint64"
+					},
+					{
+						"name": "toContract",
+						"type": "bytes"
+					},
+					{
+						"name": "method",
+						"type": "bytes"
+					},
+					{
+						"name": "txData",
+						"type": "bytes"
+					}
+				],
+				"name": "crossChain",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "contractMethodWhiteList",
+						"type": "bytes[]"
+					}
+				],
+				"name": "setContractMethodWhiteList",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "proof",
+						"type": "bytes"
+					},
+					{
+						"name": "rawHeader",
+						"type": "bytes"
+					},
+					{
+						"name": "headerProof",
+						"type": "bytes"
+					},
+					{
+						"name": "curRawHeader",
+						"type": "bytes"
+					},
+					{
+						"name": "headerSig",
+						"type": "bytes"
+					}
+				],
+				"name": "verifyHeaderAndExecuteTx",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "whiteLister",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "fromContractWhiteList",
+						"type": "address[]"
+					}
+				],
+				"name": "removeFromContractWhiteList",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_eccd",
+						"type": "address"
+					},
+					{
+						"name": "_chainId",
+						"type": "uint64"
+					},
+					{
+						"name": "fromContractWhiteList",
+						"type": "address[]"
+					},
+					{
+						"name": "contractMethodWhiteList",
+						"type": "bytes[]"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "height",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "rawHeader",
+						"type": "bytes"
+					}
+				],
+				"name": "InitGenesisBlockEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "height",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "rawHeader",
+						"type": "bytes"
+					}
+				],
+				"name": "ChangeBookKeeperEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "txId",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"name": "proxyOrAssetContract",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "toChainId",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"name": "toContract",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"name": "rawdata",
+						"type": "bytes"
+					}
+				],
+				"name": "CrossChainEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "fromChainID",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"name": "toContract",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"name": "crossChainTxHash",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"name": "fromChainTxHash",
+						"type": "bytes"
+					}
+				],
+				"name": "VerifyHeaderAndExecuteTxEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"isOwner()": {
+					"details": "Returns true if the caller is the current owner."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/core/cross_chain_manager/logic/EthCrossChainManager.sol": "EthCrossChainManager"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/core/cross_chain_manager/interface/IEthCrossChainData.sol": {
+			"keccak256": "0xaf3e10d6909d4c76a0583f3a65ba299611ae0df291863e2c4b4f26baa18c4d28",
+			"urls": [
+				"bzzr://9ea829eab9413246bf2d5429c7ef63728f5e2b2f31940246b0d0a046637fb8c2"
+			]
+		},
+		"contracts/core/cross_chain_manager/interface/IEthCrossChainManager.sol": {
+			"keccak256": "0xdf7a4f9bedc2bfd94297b71f98fe6923566ea17dcf5b81411e870637517b2f07",
+			"urls": [
+				"bzzr://ff5ed4078712d98b8dc14691b499daa4643e7a6e536692b1302fdb1cc653abf8"
+			]
+		},
+		"contracts/core/cross_chain_manager/interface/IUpgradableECCM.sol": {
+			"keccak256": "0xa87d37d830900535d38a6a35ee7edc200222c1a0f53e9eeb50a4f3aea2d72416",
+			"urls": [
+				"bzzr://7a346a7e3185d575e355c9512920b03041af9b67f73faa8b97c8f6b035dc2586"
+			]
+		},
+		"contracts/core/cross_chain_manager/libs/EthCrossChainUtils.sol": {
+			"keccak256": "0x1349fea9f1328e639ac129332273e22ca6ea34eb47f03e9a2d40973c8985f0e4",
+			"urls": [
+				"bzzr://e41d33d2775132e06af54648a8e0dd85edf4a4354830aa0189951e68c3d9b6cc"
+			]
+		},
+		"contracts/core/cross_chain_manager/logic/EthCrossChainManager.sol": {
+			"keccak256": "0x57fa0469c793ecfa83881d68c33657ca4d72c17d0129bc7c4b5e039c1e9464b4",
+			"urls": [
+				"bzzr://443f97810dd5ff07bcd8aed9f0f3d6cacb11e8f82bcc1b15aeba448bdb4b86d7"
+			]
+		},
+		"contracts/core/cross_chain_manager/upgrade/UpgradableECCM.sol": {
+			"keccak256": "0x503e72772ecc2b6825bb261e457d93933506cab7a8c6cc1206cafe86b96e2296",
+			"urls": [
+				"bzzr://8191d00f95ccf04232e3a7cf610835d3d9581363daa3488aeb488339768bf909"
+			]
+		},
+		"contracts/libs/GSN/Context.sol": {
+			"keccak256": "0x62834f1e365b937e197514f4eb6a994fa6f8d0c9bea273cf88756a121ea2157a",
+			"urls": [
+				"bzzr://5f53bff5b1a25aae232772869dcf29adbc2aac2411a285f5a334ff4c3a0aa4ef"
+			]
+		},
+		"contracts/libs/common/ZeroCopySink.sol": {
+			"keccak256": "0x74c94dd384c89d8bdf108519f0f12aaf6ec07ef9bc3cfb0b310c9d475252b46f",
+			"urls": [
+				"bzzr://ea3ac6a6ba3c73468269e52bce6d2d53ec365c1e89f80857411ed52605853848"
+			]
+		},
+		"contracts/libs/common/ZeroCopySource.sol": {
+			"keccak256": "0x25c330fc8077ee275e196f6b085c6f3ddf0ea4ecac4081084549b1205523bbbf",
+			"urls": [
+				"bzzr://821fd9f96c06308a172d1201aa595ea132aafa7ead56392f10d046e56032a337"
+			]
+		},
+		"contracts/libs/lifecycle/Pausable.sol": {
+			"keccak256": "0x0691249f42479f68d9be0f53ba336876e69993152b221333d55e4d3c833150b9",
+			"urls": [
+				"bzzr://10636c41f1bacb9a89d6e807f23cb9d1bcfd4823a0dcf5990e54a77566da2416"
+			]
+		},
+		"contracts/libs/math/SafeMath.sol": {
+			"keccak256": "0xaa67e68350961c507ee5b4235f89f00673c8a8b7d0bf22dbdf37e31ccce1020d",
+			"urls": [
+				"bzzr://b25a5b1a0a417b3cd4b39740a1437437cfb50a0ab67ad50dcef51704a87c2ae9"
+			]
+		},
+		"contracts/libs/ownership/Ownable.sol": {
+			"keccak256": "0xecaaefb54e739ce458d4fdc7a7e08bfcca816c20ca0539a16366995839b1f074",
+			"urls": [
+				"bzzr://f33439f25d73e6abba29a52b7c280f90cc81cafa56ee7eac968f6d4fa46a1127"
+			]
+		},
+		"contracts/libs/utils/Utils.sol": {
+			"keccak256": "0x75580a2870047079f63982e26f9054c99ef7d63b5944f317ed9617ff7953a0cf",
+			"urls": [
+				"bzzr://c7bfea2c348803336b9827ce476c22119aeb86439e3b4d0cca12f37d68bacf28"
+			]
+		}
+	},
+	"version": 1
+}
